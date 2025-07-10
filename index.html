@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        background-color: #f2f2f2;
+    }
+    h1, h2 {
+        color: #333;    
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input{
+        padding: 6px;
+        margin-bottom: 4px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        padding: 8px 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin-top:10px;
+        cursor: pointer;
+    }
+    button:hover {
+    background-color: #45a049;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: white;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f7f7f7;
+    }
+    td:last-child button {
+        background-color: #d9534f;
+        padding: 5px 10px;;
+        font-size: 0.9em;
+    }
+
+    td:last-child button:hover {
+        background-color: #c9302c;
+    }
+    #total-general {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+</style>
+<body>
+    <h1>Punto de venta</h1>
+    <label>Producto:
+        <input type="text" id="nombre" />
+    </label><br />
+
+    <label>Precio:
+        <input type="number" id="precio" />
+    </label><br />
+
+    <label>Cantidad:
+        <input type="number" id="cantidad" />
+    </label><br />
+
+    <button onclick="agregarProducto()">Agregar</button>
+    <script src="app.js"></script>
+
+    <h2>Productos agregados:</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody id="tabla-productos">
+        <!-- Aquí se agregarán las filas dinámicamente -->
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><strong>Total:</strong></td>
+            <td id="total-general">$0</td>
+        </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
