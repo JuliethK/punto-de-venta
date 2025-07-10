@@ -55,7 +55,7 @@ function eliminarProducto(boton, subtotal) {
   fila.remove();
 
   let totalTexto = document.getElementById("total-general").textContent.replace('$', '');
-  let total = parseFlotat(totalTexto);
+  let total = parseFloat(totalTexto);
    total -= subtotal;
    document.getElementById("total-general").textContent = `$${total.toFixed(2)}`;
 }
@@ -68,5 +68,27 @@ function eliminarProducto(boton, subtotal) {
     }
   });
 });
+
+function descargarExcel() {
+  let tabla = document.getElementById("tabla-productos");
+  let wb = XLSX.utils.table_to_book(tabla, { sheet: "Productos" });
+  XLSX.writeFile(wb, "productos.xlsx");
+}
+async function descargarPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.text("Productos Agregados", 10, 10);
+  let y = 20;
+  productos.forEach((p, index) => {
+    doc.text(`${index + 1}. ${p.nombre} - $${p.precio} x ${p.cantidad} = $${p.subtotal}`, 10, y);
+    y += 10;
+  });
+
+  doc.text(`Total: $${productos.reduce((t, p) => t + p.subtotal, 0).toFixed(2)}`, 10, y + 10);
+  doc.save("productos.pdf");
+}
+
+
 
 
