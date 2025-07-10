@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto de Venta</title>
+    
+ <!-- Para Excel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- Para PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 <style>
     body{
@@ -96,18 +103,25 @@
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody id="tabla-productos">
         <!-- Aquí se agregarán las filas dinámicamente -->
     </tbody>
+
     <tfoot>
-        <tr>
-            <td colspan="3"><strong>Total:</strong></td>
-            <td id="total-general">$0</td>
-        </tr>
-    </tfoot>
+  <tr>
+    <td colspan="3"><strong>Total:</strong></td>
+    <td id="total-general">$0</td>
+  </tr>
+</tfoot>
 </table>
+
+<!-- Solo estos botones, sin duplicar el total -->
+<button onclick="descargarExcel()">Descargar Excel</button>
+<button onclick="descargarPDF()">Descargar PDF</button>
+
 
 </body>
 </html>
