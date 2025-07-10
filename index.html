@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto de Venta</title>
-    
- <!-- Para Excel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
-<!-- Para PDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 </head>
 <style>
     body{
@@ -118,10 +111,13 @@
 </tfoot>
 </table>
 
-<!-- Solo estos botones, sin duplicar el total -->
 <button onclick="descargarExcel()">Descargar Excel</button>
 <button onclick="descargarPDF()">Descargar PDF</button>
 
+<!-- Tus scripts van al final -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script> <!-- Este debe ir de ÚLTIMO -->
 
 </body>
 </html>
